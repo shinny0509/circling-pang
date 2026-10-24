@@ -1,0 +1,19 @@
+{
+  "thread_id": "01a10a98-d4ad-7c93-b9bf-55f9f34e8087",
+  "sources": [
+    {
+      "file": "rollout-2026-10-05T13-45-50-01a10a98-d4ad-7c93-b9bf-55f9f34e8087.jsonl.zst",
+      "sha256": "9e535ad5e08586ed7d047067e23ef1ad4b8a812467a3715212eaaba220e620f8",
+      "records": 485
+    },
+    {
+      "file": "rollout-2026-10-05T17-10-51-01a10a98-d4ad-7c93-b9bf-55f9f34e8087_01a10b54-88ea-7ba1-bd29-70523b25b829.jsonl",
+      "sha256": "e19bc7973f66eb4434f4bde9f31825dfdb90da4990d7d6d23cebc50a01714a8f",
+      "records": 1427
+    }
+  ],
+  "message_count": 138,
+  "first": "2026-10-05T05:48:03.858Z",
+  "last": "2026-10-18T14:34:48.327Z",
+  "scope": "user and assistant text plus interactive questions; excludes internal reasoning and tool logs"
+}

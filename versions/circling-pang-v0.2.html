@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101010">
+<title>circle pang</title>
+<style>
+:root{color-scheme:dark;--bg:#101010;--paper:#f2e8cf;--p1:#f4b942;--p2:#65c8ae}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--paper);font-family:Consolas,"Microsoft JhengHei",monospace}button{font:inherit;color:inherit;cursor:pointer;background:none;border:1px solid var(--paper);padding:11px 16px;min-height:44px}button:hover,button:focus-visible{background:var(--paper);color:var(--bg)}button:disabled{cursor:default;opacity:.55}button:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--p2);outline-offset:4px}header{max-width:1220px;margin:auto;padding:24px 28px 19px;border-bottom:1px solid var(--paper);display:flex;justify-content:space-between;gap:20px;align-items:center}.wordmark{font-weight:900;font-size:22px;letter-spacing:3px}.edition{font-size:11px;letter-spacing:2px;line-height:1.8}.edition b{color:var(--p1)}main{max-width:1220px;margin:auto;padding:22px 28px 30px}.intro{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:22px}h1{font-size:clamp(26px,3vw,38px);margin:0 0 7px;letter-spacing:3px}.intro p{font-size:12px;margin:0;line-height:1.8}.match-label{font-size:12px;text-align:right;line-height:1.8;white-space:nowrap}.arena-layout{display:grid;grid-template-columns:minmax(155px,1fr) minmax(320px,640px) minmax(155px,1fr);gap:24px;align-items:center}.player{align-self:stretch;display:flex;flex-direction:column;padding-top:28px}.player.p1{--color:var(--p1)}.player.p2{--color:var(--p2)}.player-no{color:var(--color);font-weight:900;font-size:38px}.player-name{color:var(--color);font-size:12px;letter-spacing:2px;margin:4px 0 24px}.keyrow{display:flex;gap:8px;margin:10px 0}kbd{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--color,var(--paper));min-width:40px;height:40px;color:var(--color,var(--paper));font:700 19px Consolas,monospace}.instruction{font-size:12px;line-height:1.9;margin:0 0 18px}.ready{border-color:var(--color);color:var(--color);margin-top:8px;width:100%;font-size:13px}.ready:hover{background:var(--color);color:var(--bg)}.player-note{margin-top:auto;padding:25px 0 10px;border-top:1px solid var(--color);font-size:12px;line-height:1.9}.screen-shell{border:1px solid var(--paper);padding:8px;position:relative}.screen-meta{display:flex;justify-content:space-between;font-size:9px;letter-spacing:2px;padding:2px 3px 9px}canvas{display:block;width:100%;height:auto;aspect-ratio:1;image-rendering:pixelated;background:var(--bg);outline:none}.under-screen{display:flex;justify-content:space-between;font-size:11px;padding:10px 2px 2px;gap:8px}.status{margin:20px 0 0;min-height:24px;text-align:center;font-size:14px;line-height:1.7}.toolbar{display:flex;justify-content:center;gap:10px;margin:15px 0 28px}.toolbar button{font-size:12px}.rules{border-top:1px solid var(--paper);padding-top:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px}.rule-number{font-size:11px;color:var(--p2);letter-spacing:2px}.rules h2{font-size:15px;margin:8px 0}.rules p{font-size:12px;line-height:1.9;margin:0}details{margin-top:26px;border-top:1px solid var(--paper);padding-top:15px;font-size:12px}summary{cursor:pointer;line-height:2}#telemetry{font-size:12px;line-height:1.9;white-space:pre-wrap}details button{font-size:12px;margin:8px 0}footer{font-size:10px;letter-spacing:1px;margin-top:24px;display:flex;justify-content:space-between;gap:20px;line-height:1.8}.mobile-note{display:none;color:var(--p1);font-size:12px;line-height:1.8}@media(min-width:1350px){.arena-layout{grid-template-columns:1fr 640px 1fr}}@media(max-width:850px){.arena-layout{grid-template-columns:1fr 1fr;gap:18px}.screen-shell{grid-column:1/-1;grid-row:1;max-width:640px;width:100%;justify-self:center}.player{padding-top:0}.player-no{font-size:23px}.player-name{margin-bottom:4px}.player-note{display:none}.keyrow{margin:8px 0}.instruction{margin-bottom:3px}.rules{gap:18px}.mobile-note{display:block}.intro{align-items:start}.match-label{font-size:10px}header,main{padding-left:18px;padding-right:18px}.wordmark{font-size:18px}.edition{font-size:9px}}@media(max-width:480px){.rules{grid-template-columns:1fr}.intro{display:block}.match-label{text-align:left;margin-top:10px}.edition{display:none}h1{font-size:26px}.screen-shell{padding:5px}.screen-meta{font-size:8px}.under-screen{font-size:9px}.toolbar button{padding:10px;font-size:11px}}
+/* Integer scaling on roomy desktop screens; smaller screens keep the whole court visible. */
+@media(min-width:851px){.arena-layout{grid-template-columns:minmax(155px,1fr) 498px minmax(155px,1fr)}}
+@media(min-width:1350px) and (min-height:1000px){.arena-layout{grid-template-columns:minmax(155px,1fr) 658px minmax(155px,1fr)}}
+</style>
+</head>
+<body>
+<header><div class="wordmark">circle pang</div><div class="edition"><b>1976 ARCADE EXPERIMENT</b><br>TNDA · CYCLE 01 / ORIGINAL</div></header>
+<main>
+<div class="intro"><div><h1>circle pang</h1><p>預判。加速。把下一球，交給混沌。</p></div><div class="match-label">YOU VS CPU · 180 SECONDS<br>電腦接手 2P，立即單人試玩。</div></div>
+<p class="mobile-note">本原型需要實體鍵盤，請使用 A／D 移動、W 開始。</p>
+<div class="arena-layout">
+<aside class="player p1"><div class="player-no">01</div><div class="player-name">AMBER / 琥珀</div><div class="keyrow"><kbd>A</kbd><kbd>D</kbd></div><p class="instruction">A 逆時針 · D 順時針<br>按住加速，放開減速。</p><button class="ready" id="ready1">W · 玩家一準備</button><div class="player-note">速度是武器，<br>也是煞不住的慣性。</div></aside>
+<section class="screen-shell" aria-label="遊戲畫面"><div class="screen-meta"><span>CIRCLE COURT / 01</span><span>320 × 320</span></div><canvas id="game" width="320" height="320" tabindex="0" aria-label="circle pang。A、D 移動，W 開始或重玩；玩家二由電腦控制。">請使用支援 Canvas 的瀏覽器。</canvas><div class="under-screen"><span id="turnLabel">YOU VS CPU</span><span id="speedLabel">MATCH 03:00</span></div></section>
+<aside class="player p2"><div class="player-no">02</div><div class="player-name">JADE / 電腦對手</div><div class="keyrow"><kbd>CPU</kbd></div><p class="instruction">自動預判來球並移動。<br>同樣需要加速與煞車。</p><button class="ready" id="ready2" disabled>CPU · 已就緒</button><div class="player-note">有反應時間，<br>也會追過頭、接不到。</div></aside>
+</div>
+<p class="status" id="status" role="status" aria-live="polite">按 W 或玩家一準備，與電腦開始比賽。</p>
+<div class="toolbar"><button id="pause" disabled>暫停</button><button id="mute" aria-pressed="false">音效：開</button></div>
+<div class="rules"><article><span class="rule-number">01 / TAKE TURNS</span><h2>實心拍，輪到你</h2><p>只有接球方能碰球。球會穿過另一支空心拍；兩支拍子也能互相穿過。</p></article><article><span class="rule-number">02 / BUILD SPIN</span><h2>移動越快，旋球越強</h2><p>舊旋轉與新擊球疊加。旋球越強，球速加成越高，最高 +50%；維持至對手回擊，再依新的旋轉強度計算。</p></article><article><span class="rule-number">03 / BEAT THE CLOCK</span><h2>越接近終場，球越快</h2><p>漏接就失分。直接打出界、未先回場內，也算失誤。三分鐘立即結算，同分平手。</p></article></div>
+<details id="lab"><summary>原型觀測 · 本機試玩紀錄</summary><p>此處只顯示這次開啟頁面的資料，不上傳、不儲存個人資訊。數值仍需雙人試玩調整。</p><pre id="telemetry"></pre><button id="export">匯出本場事件 JSON</button></details>
+<footer><span>MCP / 最小核心玩法原型 · v1.3 SPIN BOOST</span><span>OFFLINE · ONE FILE · FOUR COLORS</span></footer>
+</main>
+<script>
+'use strict';
+// Deterministic simulation; no DOM or random input inside the rules.
+const OrbitRules = (() => {
+ const C=Object.freeze({duration:180,step:1/240,radius:110,edge:124,ballRadius:3,thickness:6,halfArc:Math.PI/10,maxOmega:4.6,acceleration:3.3,braking:6.2,drag:2.8,startSpeed:92,endSpeed:184,maxSpin:2.65,maxSpinBoost:.5,spinRetention:.58,spinDecay:.58,spinGain:.57,preview:.5,feedback:.3});
+ const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+ const wrap=a=>Math.atan2(Math.sin(a),Math.cos(a));
+ function create(firstServer=0){const s={phase:'preview',elapsed:0,started:false,phaseTime:C.preview,server:firstServer,next:firstServer,lastHit:null,pendingReturn:false,scores:[0,0],paddles:[{angle:0,omega:0},{angle:0,omega:0}],ball:{x:0,y:0,dx:0,dy:1,spin:0,mark:0,speedBoost:0},hits:0,rally:0,bestRally:0,events:[],eventSerial:0,pointWinner:null,reason:'',finished:false};prepare(s);return s;}
+ function event(s,type,data={}){s.events.push({id:++s.eventSerial,time:+s.elapsed.toFixed(6),type,...data});if(s.events.length>4000)s.events.shift();}
+ function baseSpeed(s,lookAhead=0){return C.startSpeed+(C.endSpeed-C.startSpeed)*clamp((s.elapsed+lookAhead)/C.duration,0,1);}
+ function speed(s,lookAhead=0){return baseSpeed(s,lookAhead)*(1+s.ball.speedBoost);}
+ function prepare(s){s.phase='preview';s.phaseTime=C.preview;s.next=s.server;s.lastHit=null;s.pendingReturn=false;s.rally=0;s.paddles.forEach((p,i)=>{p.angle=i===s.server?Math.PI/2:-Math.PI/2;p.omega=0;});Object.assign(s.ball,{x:0,y:0,dx:0,dy:1,spin:0,mark:0,speedBoost:0});}
+ function finish(s){if(s.finished)return;s.finished=true;s.phase='over';s.elapsed=C.duration;event(s,'match_end',{scores:[...s.scores]});}
+ function point(s){let winner,reason;if(s.lastHit===null){winner=1-s.server;reason='serve_miss';}else if(s.pendingReturn){winner=1-s.lastHit;reason='invalid_return';}else{winner=s.lastHit;reason='miss';}s.ball.speedBoost=0;s.scores[winner]++;s.pointWinner=winner;s.reason=reason;s.phase='point';s.phaseTime=C.feedback;event(s,'point',{winner,reason,scores:[...s.scores]});}
+ function movePaddle(p,dir,dt){if(!dir){const d=C.drag*dt;p.omega=Math.sign(p.omega)*Math.max(0,Math.abs(p.omega)-d);}else if(p.omega*dir<0){const stop=Math.abs(p.omega)/C.braking;if(stop>=dt)p.omega+=dir*C.braking*dt;else p.omega=dir*C.acceleration*(dt-stop);}else p.omega+=dir*C.acceleration*dt;p.omega=clamp(p.omega,-C.maxOmega,C.maxOmega);p.angle=wrap(p.angle+p.omega*dt);}
+ function collide(s){if(s.pendingReturn)return;const b=s.ball,p=s.paddles[s.next],a=Math.atan2(b.y,b.x),d=wrap(a-p.angle),near=p.angle+clamp(d,-C.halfArc,C.halfArc),qx=Math.cos(near)*C.radius,qy=Math.sin(near)*C.radius,ex=b.x-qx,ey=b.y-qy;
+  if(ex*ex+ey*ey>(C.ballRadius+C.thickness/2)**2)return;
+  const r=Math.hypot(b.x,b.y)||1,nx=b.x/r,ny=b.y/r,tx=-ny,ty=nx,tangent=b.dx*tx+b.dy*ty;
+  // Inner-face bias prevents outward self-scoring; the tangential component remains.
+  const side=clamp(tangent*.70+p.omega*.095,-.83,.83),inward=Math.sqrt(1-side*side);
+  b.dx=-nx*inward+tx*side;b.dy=-ny*inward+ty*side;
+  b.spin=clamp(b.spin*C.spinRetention+p.omega*C.spinGain-tangent*.16,-C.maxSpin,C.maxSpin);
+  // Latch the outgoing spin reward until the next eligible hit; never stack speed bonuses.
+  b.speedBoost=C.maxSpinBoost*clamp(Math.abs(b.spin)/C.maxSpin,0,1);
+  s.lastHit=s.next;s.next=1-s.next;s.pendingReturn=true;s.hits++;s.rally++;s.bestRally=Math.max(s.bestRally,s.rally);
+  event(s,'hit',{player:s.lastHit,omega:+p.omega.toFixed(5),spin:+b.spin.toFixed(5),speedBoost:+b.speedBoost.toFixed(5),speed:+speed(s).toFixed(3),x:+b.x.toFixed(3),y:+b.y.toFixed(3)});
+ }
+ function flight(s,dt,dirs){s.paddles.forEach((p,i)=>movePaddle(p,dirs[i],dt));const b=s.ball,angle=b.spin*dt,co=Math.cos(angle),si=Math.sin(angle),ox=b.dx;b.dx=ox*co-b.dy*si;b.dy=ox*si+b.dy*co;b.spin*=Math.exp(-C.spinDecay*dt);b.mark+=b.spin*dt*5;const v=speed(s);const x=b.x,y=b.y;b.x+=b.dx*v*dt;b.y+=b.dy*v*dt;
+  if(s.pendingReturn&&Math.hypot(b.x,b.y)<C.radius-C.thickness/2-C.ballRadius-.6){s.pendingReturn=false;event(s,'valid_return',{player:s.lastHit});}
+  collide(s);
+  const edge=C.edge+C.ballRadius;if(b.x*b.x+b.y*b.y>edge*edge){const vx=b.x-x,vy=b.y-y,A=vx*vx+vy*vy,B=2*(x*vx+y*vy),D=B*B-4*A*(x*x+y*y-edge*edge),fraction=A>0?clamp((-B+Math.sqrt(Math.max(0,D)))/(2*A),0,1):0;const when=s.elapsed+dt*fraction;
+   if(when<C.duration-1e-9){const start=s.elapsed;s.elapsed=when;point(s);s.elapsed=start;} }
+ }
+ function step(s,dt,dirs=[0,0]){if(s.finished)return;let remaining=dt;while(remaining>1e-10&&!s.finished){const wasStarted=s.started;let h=Math.min(remaining,1/960);if(s.started)h=Math.min(h,C.duration-s.elapsed);if(h<=1e-10){finish(s);break;}
+   if(s.phase==='play')flight(s,h,dirs);
+   else if(s.phase==='preview'||s.phase==='point'){h=Math.min(h,s.phaseTime);s.phaseTime-=h;if(s.phaseTime<1e-10){if(s.phase==='point'){s.server=1-s.server;prepare(s);}else{s.phase='play';s.started=true;event(s,'serve',{player:s.server,speed:+speed(s).toFixed(3)});}}}
+   // First preview is outside the match clock; launch occurs at its endpoint.
+   if(wasStarted)s.elapsed=Math.min(C.duration,s.elapsed+h);
+   remaining-=h;if(s.started&&s.elapsed>=C.duration-1e-10)finish(s);
+  }}
+ return {C,create,step,baseSpeed,speed,wrap};
+})();
+
+// The CPU only chooses a direction; all motion and contacts use the same rules as P1.
+const OrbitCPU = (() => {
+ const C=OrbitRules.C;
+ function create(){return {nextThink:0,direction:0,target:0,decisions:0};}
+ function predict(s){let {x,y,dx,dy,spin}=s.ball,inside=Math.hypot(x,y)<103;const h=1/60;
+  for(let t=0;t<3;t+=h){const a=spin*h,c=Math.cos(a),n=Math.sin(a),old=dx;dx=old*c-dy*n;dy=old*n+dy*c;spin*=Math.exp(-C.spinDecay*h);const v=OrbitRules.speed(s,t);x+=dx*v*h;y+=dy*v*h;const r=Math.hypot(x,y);if(r<103)inside=true;if(inside&&r>=104&&(x*dx+y*dy)>0)return Math.atan2(y,x);if(r>C.edge+C.ballRadius)break;}return Math.atan2(y,x);
+ }
+ function input(s,brain){if(s.phase!=='play'||s.finished){brain.direction=0;brain.nextThink=s.elapsed+.16;return 0;}if(s.elapsed+1e-9<brain.nextThink)return brain.direction;brain.nextThink=s.elapsed+.16;brain.decisions++;
+  if(s.next!==1){brain.direction=0;return 0;}const p=s.paddles[1];brain.target=predict(s)+.09*Math.sin(s.elapsed*.9);const error=OrbitRules.wrap(brain.target-p.angle),sign=Math.sign(error),stop=p.omega*p.omega/(2*C.braking);
+  if(Math.abs(error)<.055)brain.direction=Math.abs(p.omega)>.22?-Math.sign(p.omega):0;
+  else if(p.omega*error>0&&stop+Math.abs(p.omega)*.16>Math.abs(error))brain.direction=-Math.sign(p.omega);
+  else brain.direction=sign;return brain.direction;
+ }
+ return {create,input};
+})();
+
+(() => {
+ const $=id=>document.getElementById(id),canvas=$('game'),ctx=canvas.getContext('2d',{alpha:false}),C=OrbitRules.C;
+ let state=OrbitRules.create(),cpu=OrbitCPU.create(),mode='lobby',ready=[false,true],firstServer=0,paused=false,muted=false,accumulator=0,lastFrame=0,lastUi=0,lastEvent=0,audio=null;
+ const keys=new Set(),palette=['#101010','#f2e8cf','#f4b942','#65c8ae'],rgb=[[16,16,16],[242,232,207],[244,185,66],[101,200,174]],frame=ctx.createImageData(320,320);
+ const font={A:'010101111101101',B:'110101110101110',C:'011100100100011',D:'110101101101110',E:'111100110100111',F:'111100110100100',G:'011100101101011',H:'101101111101101',I:'111010010010111',J:'001001001101010',K:'101101110101101',L:'100100100100111',M:'101111111101101',N:'101111111111101',O:'010101101101010',P:'110101110100100',Q:'010101101111011',R:'110101110101101',S:'011100010001110',T:'111010010010010',U:'101101101101111',V:'101101101101010',W:'101101111111101',X:'101101010101101',Y:'101101010010010',Z:'111001010100111','0':'111101101101111','1':'010110010010111','2':'110001010100111','3':'110001010001110','4':'101101111001001','5':'111100110001110','6':'011100111101111','7':'111001010010010','8':'111101111101111','9':'111101111001110',':':'000010000010000','-':'000000111000000','/':'001001010100100','+':'000010111010000','.':'000000000000010','>':'100010001010100','<':'001010100010001'};
+ function pixel(x,y,c){x=Math.round(x);y=Math.round(y);if(x<0||x>=320||y<0||y>=320)return;const i=(y*320+x)*4,k=rgb[c];frame.data[i]=k[0];frame.data[i+1]=k[1];frame.data[i+2]=k[2];frame.data[i+3]=255;}
+ function rect(x,y,w,h,c){for(let yy=Math.round(y);yy<y+h;yy++)for(let xx=Math.round(x);xx<x+w;xx++)pixel(xx,yy,c);}
+ function line(x,y,xx,yy,c){x=Math.round(x);y=Math.round(y);xx=Math.round(xx);yy=Math.round(yy);let dx=Math.abs(xx-x),sx=x<xx?1:-1,dy=-Math.abs(yy-y),sy=y<yy?1:-1,e=dx+dy;while(true){pixel(x,y,c);if(x===xx&&y===yy)break;const e2=e*2;if(e2>=dy){e+=dy;x+=sx;}if(e2<=dx){e+=dx;y+=sy;}}}
+ function text(t,x,y,c=1,scale=1,center=false){t=String(t).toUpperCase();if(center)x-=((t.length*4-1)*scale)/2;for(let j=0;j<t.length;j++){let glyph=font[t[j]];if(!glyph)continue;for(let k=0;k<15;k++)if(glyph[k]==='1')rect(x+j*4*scale+(k%3)*scale,y+Math.floor(k/3)*scale,scale,scale,c);}}
+ const field=[];for(let y=42;y<=298;y++)for(let x=32;x<=288;x++){const dx=x-160,dy=y-170,r=Math.hypot(dx,dy);if(Math.abs(r-C.edge)<.52)field.push([x,y]);}
+ function paddle(p,i,active){const color=i+2;for(let y=53;y<=287;y++)for(let x=43;x<=277;x++){const dx=x-160,dy=y-170,r=Math.hypot(dx,dy);if(r<C.radius-3.4||r>C.radius+3.4)continue;const a=Math.abs(OrbitRules.wrap(Math.atan2(dy,dx)-p.angle));if(a>C.halfArc)continue;if(active||Math.abs(r-C.radius)>2||a>C.halfArc-.015)pixel(x,y,color);}const a=p.angle;const px=160+Math.cos(a)*119,py=170+Math.sin(a)*119;rect(px-1,py-1,3,3,color);}
+ function overlay(title,sub,color=1){rect(45,131,230,69,0);line(45,131,274,131,color);line(45,199,274,199,color);text(title,160,147,color,2,true);text(sub,160,177,1,1,true);}
+ function render(){for(let i=0;i<frame.data.length;i+=4){frame.data[i]=16;frame.data[i+1]=16;frame.data[i+2]=16;frame.data[i+3]=255;}const seconds=Math.max(0,Math.ceil(C.duration-state.elapsed)),clock=String(Math.floor(seconds/60)).padStart(2,'0')+':'+String(seconds%60).padStart(2,'0');text('P1',12,8,2);text(String(state.scores[0]).padStart(2,'0'),12,19,2,3);text('P2',281,8,3);text(String(state.scores[1]).padStart(2,'0'),281,19,3,3);text(clock,160,9,seconds<=10?2:1,3,true);text(mode==='lobby'?'READY UP':state.phase==='over'?'FULL TIME':'NEXT P'+(state.next+1),160,31,state.next+2,1,true);
+  for(const [x,y]of field)pixel(x,y,1);for(let k=0;k<12;k++){const a=k*Math.PI/6;line(160+Math.cos(a)*120,170+Math.sin(a)*120,160+Math.cos(a)*123,170+Math.sin(a)*123,1);}pixel(160,170,1);paddle(state.paddles[1],1,state.next===1);paddle(state.paddles[0],0,state.next===0);
+  const b=state.ball,bx=160+b.x,by=170+b.y;if(state.phase!=='point'&&state.phase!=='over'){for(let y=-3;y<=3;y++)for(let x=-3;x<=3;x++)if(x*x+y*y<=10)pixel(bx+x,by+y,1);line(bx-Math.cos(b.mark)*2,by-Math.sin(b.mark)*2,bx+Math.cos(b.mark)*2,by+Math.sin(b.mark)*2,Math.abs(b.spin)>.08?(b.spin>0?2:3):0);}
+  if(mode==='lobby'){overlay('CIRCLE PANG','PRESS W : VS CPU');text(ready[0]?'P1 READY':'P1 WAIT',105,215,2,1,true);text('CPU READY',215,215,3,1,true);}
+  else if(paused)overlay('PAUSED','PRESS W TO RESUME');
+  else if(state.phase==='preview'){text('P'+(state.server+1)+' SERVE',160,130,state.server+2,2,true);line(160,187,160,199,1);line(160,199,156,195,1);line(160,199,164,195,1);}
+  else if(state.phase==='point')overlay('P'+(state.pointWinner+1)+' +1',state.reason==='invalid_return'?'RETURN FAULT':'OUT OF COURT',state.pointWinner+2);
+  else if(state.phase==='over'){const winner=state.scores[0]===state.scores[1]?-1:state.scores[0]>state.scores[1]?0:1;overlay(winner<0?'DRAW':'P'+(winner+1)+' WINS','PRESS W : PLAY AGAIN',winner<0?1:winner+2);text(ready[0]?'P1 READY':'P1 WAIT',105,215,2,1,true);text('CPU READY',215,215,3,1,true);}
+  const bar=290*state.elapsed/C.duration;rect(15,311,290,1,1);rect(15,309,bar,3,seconds<=10?2:3);ctx.putImageData(frame,0,0);
+ }
+ function unlockAudio(){if(!audio){const AC=window.AudioContext||window.webkitAudioContext;if(AC)audio=new AC();}if(audio&&audio.state==='suspended')audio.resume().catch(()=>{});}
+ function sound(kind){if(muted||!audio||audio.state!=='running')return;const specs={hit:[400,260,.055,'square'],spin:[780,320,.095,'triangle'],point:[180,75,.16,'square'],end:[520,130,.36,'triangle']},[f,end,duration,type]=specs[kind],o=audio.createOscillator(),g=audio.createGain(),t=audio.currentTime;o.type=type;o.frequency.setValueAtTime(f,t);o.frequency.exponentialRampToValueAtTime(end,t+duration);g.gain.setValueAtTime(.045,t);g.gain.exponentialRampToValueAtTime(.001,t+duration);o.connect(g);g.connect(audio.destination);o.start(t);o.stop(t+duration);o.onended=()=>{o.disconnect();g.disconnect();};}
+ function consumeEvents(){for(const e of state.events){if(e.id<=lastEvent)continue;lastEvent=e.id;if(e.type==='hit')sound(Math.abs(e.spin)>.8?'spin':'hit');if(e.type==='point')sound('point');if(e.type==='match_end'){sound('end');ready=[false,true];keys.clear();}}}
+ function updateUI(){const ended=state.phase==='over',canReady=mode==='lobby'||ended;$('ready1').disabled=!canReady;$('ready2').disabled=true;$('ready1').textContent=canReady?'W · '+(ended?'再玩一場':'開始比賽'):'P1 · 比賽中';$('ready2').textContent=canReady?'CPU · 已就緒':'CPU · 自動控制';$('pause').disabled=mode==='lobby'||ended;$('pause').textContent=paused?'繼續比賽':'暫停';const name=i=>i===0?'你':'電腦';let message;if(mode==='lobby')message='按 W 或「開始比賽」，與電腦開始三分鐘對決。';else if(paused)message='比賽已暫停，按 W 或「繼續比賽」恢復。';else if(ended)message=state.scores[0]===state.scores[1]?'平手！按 W 再來一場。':name(state.scores[0]>state.scores[1]?0:1)+'獲勝！按 W 再來一場。';else if(state.phase==='preview')message=name(state.server)+'發球 · 預告結束才開放移動';else if(state.phase==='point')message=name(state.pointWinner)+'得分 · '+({serve_miss:'發球漏接',invalid_return:'回球未先回到場內',miss:'對手漏接出界'}[state.reason]);else message='輪到'+name(state.next)+'接球 · 實心拍有效，空心拍可穿過';if($('status').textContent!==message)$('status').textContent=message;$('turnLabel').textContent=mode==='lobby'?'YOU VS CPU':ended?'MATCH COMPLETE':state.next===0?'NEXT / YOU':'NEXT / CPU';$('speedLabel').textContent='BALL '+Math.round(OrbitRules.speed(state))+' PX/S'+(state.ball.speedBoost>0?' · SPIN +'+Math.round(state.ball.speedBoost*100)+'%':'');if($('lab').open)$('telemetry').textContent='球速 '+OrbitRules.speed(state).toFixed(1)+' px/s  ·  旋轉 '+state.ball.spin.toFixed(2)+' rad/s\n基礎球速 '+OrbitRules.baseSpeed(state).toFixed(1)+' px/s  ·  本拍加速 +'+(state.ball.speedBoost*100).toFixed(1)+'%\nP1 轉速 '+state.paddles[0].omega.toFixed(2)+'  ·  CPU 轉速 '+state.paddles[1].omega.toFixed(2)+' rad/s\n累積擊球 '+state.hits+'  ·  最長對打 '+state.bestRally+' 次\n遊戲時間 '+state.elapsed.toFixed(2)+' / 180 秒\nCPU 觀察間隔 160 ms  ·  不讀取玩家按鍵\n本機事件 '+state.events.length+' 筆';}
+ function readyPlayer(){unlockAudio();if(paused){resume();return;}if(mode!=='lobby'&&state.phase!=='over')return;if(mode!=='lobby')firstServer=1-firstServer;state=OrbitRules.create(firstServer);cpu=OrbitCPU.create();mode='match';ready=[false,true];paused=false;accumulator=0;lastEvent=0;keys.clear();updateUI();render();}
+ function pause(){if(mode==='match'&&state.phase!=='over'){paused=true;keys.clear();accumulator=0;updateUI();render();}}
+ function resume(){paused=false;keys.clear();accumulator=0;lastFrame=performance.now();updateUI();}
+ document.addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey)return;if(['KeyA','KeyD','KeyW'].includes(e.code)){e.preventDefault();if(e.repeat)return;keys.add(e.code);if(e.code==='KeyW')readyPlayer(0);}});
+ document.addEventListener('keyup',e=>{keys.delete(e.code);});window.addEventListener('blur',pause);document.addEventListener('visibilitychange',()=>{if(document.hidden)pause();});$('ready1').onclick=()=>readyPlayer(0);$('ready2').onclick=()=>readyPlayer(1);$('pause').onclick=()=>{unlockAudio();paused?resume():pause();};$('mute').onclick=()=>{muted=!muted;$('mute').textContent=muted?'音效：關':'音效：開';$('mute').setAttribute('aria-pressed',String(muted));if(!muted)unlockAudio();};$('export').onclick=()=>{const blob=new Blob([JSON.stringify({game:'circle pang prototype 1.3 SPIN BOOST',parameters:C,scores:state.scores,elapsed:state.elapsed,events:state.events},null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='circle-pang-session.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+ function loop(now){const delta=lastFrame?(now-lastFrame)/1000:0;lastFrame=now;if(mode==='match'&&!paused&&!state.finished){if(delta>.5){pause();}else{accumulator+=delta;while(accumulator>=C.step){const dirs=[Number(keys.has('KeyD'))-Number(keys.has('KeyA')),OrbitCPU.input(state,cpu)];OrbitRules.step(state,C.step,dirs);accumulator-=C.step;}consumeEvents();}}render();if(now-lastUi>90){updateUI();lastUi=now;}requestAnimationFrame(loop);}
+ // Read-only state for local QA; simulation rules can be exercised in isolation.
+ window.OrbitPrototype={snapshot:()=>JSON.parse(JSON.stringify({state,mode,ready,paused,cpu})),parameters:C};
+ updateUI();render();requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
+
+
